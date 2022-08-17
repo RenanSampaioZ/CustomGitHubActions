@@ -13,17 +13,19 @@ const last_tag = await octokit.request('GET /repos/{owner}/{repo}/releases/lates
     repo: repo
   })
 
-await octokit.request('POST /repos/{owner}/{repo}/releases', {
-  owner: owner,
-  repo: repo,
-  tag_name: last_tag + '0.1.0',
-  target_commitish: 'master',
-  name: last_tag + '0.1.0',
-  body: 'Description of the release',
-  draft: false,
-  prerelease: false,
-  generate_release_notes: false
-})
+print(last_tag)
+
+// await octokit.request('POST /repos/{owner}/{repo}/releases', {
+//   owner: owner,
+//   repo: repo,
+//   tag_name: last_tag + '0.1.0',
+//   target_commitish: 'master',
+//   name: last_tag + '0.1.0',
+//   body: 'Description of the release',
+//   draft: false,
+//   prerelease: false,
+//   generate_release_notes: false
+// })
 }
 
 // Call the main function to run the action
