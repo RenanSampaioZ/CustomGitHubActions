@@ -8,9 +8,7 @@ const repo = core.getInput('repo', { required: true });
 const owner = core.getInput('owner', { required: true });
 // Octokit.js
 // https://github.com/octokit/core.js#readme
-const octokit = new Octokit({
-  auth: token
-})
+const octokit = new github.getOctokit(token);
 
 await octokit.request('POST /repos/{owner}/{repo}/releases', {
   owner: owner,
