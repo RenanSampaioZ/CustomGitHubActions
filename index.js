@@ -24,9 +24,9 @@ const last_tag_number = array_last_tag_name.join('')
 await octokit.request('POST /repos/{owner}/{repo}/releases', {
   owner: owner,
   repo: repo,
-  tag_name: String(parseFloat(last_tag_number) + parseFloat("0.1")),
+  tag_name: 'v'+ String(parseFloat(last_tag_number) + parseFloat("0.1")),
   target_commitish: 'hmg',
-  name: String(parseFloat(last_tag_number) + parseFloat("0.1")),
+  name: 'v'+ String(parseFloat(last_tag_number) + parseFloat("0.1")),
   body: 'Description of the release',
   draft: false,
   prerelease: false,
