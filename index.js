@@ -13,7 +13,7 @@ const last_tag = await octokit.request('GET /repos/{owner}/{repo}/releases/lates
     repo: repo
   })
 
-console.log(typeof(last_tag.data.tag_name))
+console.log(parseFloat(last_tag.data.tag_name))
 
 // console.log(String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")))
 
