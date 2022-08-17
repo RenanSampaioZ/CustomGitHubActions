@@ -8,18 +8,18 @@ const repo = core.getInput('repo', { required: true });
 const owner = core.getInput('owner', { required: true });
 const octokit = new github.getOctokit(token);
   
-const last_tag_name = await octokit.request('GET /repos/{owner}/{repo}/releases/latest', {
+const last_tag = await octokit.request('GET /repos/{owner}/{repo}/releases/latest', {
     owner: owner,
     repo: repo
   })
+
+const last_tag_name = last_tag.data.tag_name
 
 const array_last_tag_name = last_tag_name.split('')
 
 array_last_tag_name.shift()
 
 const last_tag_number = array_last_tag_name.join('')
-
-// console.log(String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")))
 
 await octokit.request('POST /repos/{owner}/{repo}/releases', {
   owner: owner,
