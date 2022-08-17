@@ -6,16 +6,19 @@ const main = async () => {
 const token = core.getInput('token', { required: true });
 const repo = core.getInput('repo', { required: true });    
 const owner = core.getInput('owner', { required: true });
-// Octokit.js
-// https://github.com/octokit/core.js#readme
 const octokit = new github.getOctokit(token);
+  
+const last_tag = await octokit.request('GET /repos/{owner}/{repo}/releases/latest', {
+    owner: owner,
+    repo: repo
+  })
 
 await octokit.request('POST /repos/{owner}/{repo}/releases', {
   owner: owner,
   repo: repo,
-  tag_name: 'v1.0.0',
+  tag_name: last_tag + '0.1.0',
   target_commitish: 'master',
-  name: 'v1.0.0',
+  name: last_tag + '0.1.0',
   body: 'Description of the release',
   draft: false,
   prerelease: false,
