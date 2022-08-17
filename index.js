@@ -13,19 +13,21 @@ const last_tag = await octokit.request('GET /repos/{owner}/{repo}/releases/lates
     repo: repo
   })
 
+typeof(last_tag.data.tag_name)
+
 console.log(String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")))
 
-await octokit.request('POST /repos/{owner}/{repo}/releases', {
-  owner: owner,
-  repo: repo,
-  tag_name: String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")),
-  target_commitish: 'master',
-  name: String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")),
-  body: 'Description of the release',
-  draft: false,
-  prerelease: false,
-  generate_release_notes: false
-})
+// await octokit.request('POST /repos/{owner}/{repo}/releases', {
+//   owner: owner,
+//   repo: repo,
+//   tag_name: String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")),
+//   target_commitish: 'master',
+//   name: String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")),
+//   body: 'Description of the release',
+//   draft: false,
+//   prerelease: false,
+//   generate_release_notes: false
+// })
 }
 
 // Call the main function to run the action
