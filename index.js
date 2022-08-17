@@ -13,7 +13,7 @@ const last_tag = await octokit.request('GET /repos/{owner}/{repo}/releases/lates
     repo: repo
   })
 
-console.log(last_tag.data.tag_name)
+console.log(last_tag.data.tag_name + '0.1.0')
 
 // await octokit.request('POST /repos/{owner}/{repo}/releases', {
 //   owner: owner,
