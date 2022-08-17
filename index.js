@@ -13,9 +13,9 @@ const last_tag = await octokit.request('GET /repos/{owner}/{repo}/releases/lates
     repo: repo
   })
 
-typeof(last_tag.data.tag_name)
+console.log(typeof(last_tag.data.tag_name))
 
-console.log(String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")))
+// console.log(String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")))
 
 // await octokit.request('POST /repos/{owner}/{repo}/releases', {
 //   owner: owner,
