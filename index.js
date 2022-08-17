@@ -25,7 +25,7 @@ await octokit.request('POST /repos/{owner}/{repo}/releases', {
   owner: owner,
   repo: repo,
   tag_name: String(parseFloat(last_tag_number) + parseFloat("0.1")),
-  target_commitish: 'master',
+  target_commitish: 'hmg',
   name: String(parseFloat(last_tag_number) + parseFloat("0.1")),
   body: 'Description of the release',
   draft: false,
