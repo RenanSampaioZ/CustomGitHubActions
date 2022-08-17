@@ -18,9 +18,9 @@ const last_tag = await octokit.request('GET /repos/{owner}/{repo}/releases/lates
 await octokit.request('POST /repos/{owner}/{repo}/releases', {
   owner: owner,
   repo: repo,
-  tag_name: toString(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")),
+  tag_name: String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")),
   target_commitish: 'master',
-  name: toString(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")),
+  name: String(parseFloat(last_tag.data.tag_name) + parseFloat("0.1")),
   body: 'Description of the release',
   draft: false,
   prerelease: false,
