@@ -34,8 +34,8 @@ await octokit.request('POST /repos/{owner}/{repo}/releases', {
   target_commitish: 'hmg',
   name: 'v'+ (parseFloat(last_tag_number) + parseFloat("0.1")).toFixed(1),
   body: 'Description of the release',
-  draft: true,
-  prerelease: true,
+  draft: false,
+  prerelease: false,
   generate_release_notes: true
 })
 
