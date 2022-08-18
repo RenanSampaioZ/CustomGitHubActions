@@ -1,12 +1,14 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const token = core.getInput('token', { required: true });
+const repo = core.getInput('repo', { required: true });    
+const owner = core.getInput('owner', { required: true });
+const octokit = new github.getOctokit(token);
+
 
 const main = async () => {
   try {
-    const token = core.getInput('token', { required: true });
-    const repo = core.getInput('repo', { required: true });    
-    const owner = core.getInput('owner', { required: true });
-    const octokit = new github.getOctokit(token);
+
 
     // const commits = await octokit.request('GET /repos/{owner}/{repo}/compare/{basehead}', {
     //   owner: owner,
