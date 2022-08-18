@@ -39,13 +39,13 @@ await octokit.request('POST /repos/{owner}/{repo}/releases', {
   generate_release_notes: false
 })
 
-await octokit.request('POST /repos/{owner}/{repo}/releases/generate-notes', {
-  owner: owner,
-  repo: repo,
-  tag_name: 'v'+ String(parseFloat(last_tag_number) + parseFloat("0.1")),
-  target_commitish: 'hmg',
-  previous_tag_name: String(parseFloat(last_tag_number)),
-})
+// await octokit.request('POST /repos/{owner}/{repo}/releases/generate-notes', {
+//   owner: owner,
+//   repo: repo,
+//   tag_name: 'v'+ String(parseFloat(last_tag_number) + parseFloat("0.1")),
+//   target_commitish: 'hmg',
+//   previous_tag_name: String(parseFloat(last_tag_number)),
+// })
 }
 
 
