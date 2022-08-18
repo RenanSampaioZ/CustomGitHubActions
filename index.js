@@ -27,7 +27,7 @@ array_last_tag_name.shift()
 
 const last_tag_number = array_last_tag_name.join('')
 
-console.log(last_tag_number)
+console.log('v'+ String(parseFloat(last_tag_number) + parseFloat("0.1")))
 
 // await octokit.request('POST /repos/{owner}/{repo}/releases', {
 //   owner: owner,
