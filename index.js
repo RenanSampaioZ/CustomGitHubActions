@@ -11,7 +11,7 @@ const octokit = new github.getOctokit(token);
 const commits = await octokit.request('GET /repos/{owner}/{repo}/compare/{basehead}', {
   owner: owner,
   repo: repo,
-  basehead: 'hmg...develop'
+  basehead: 'develop...hmg'
 })
 
 console.log(commits)
