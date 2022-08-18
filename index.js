@@ -8,18 +8,11 @@ const repo = core.getInput('repo', { required: true });
 const owner = core.getInput('owner', { required: true });
 const octokit = new github.getOctokit(token);
 
-const commits = await octokit.request('GET /repos/{owner}/{repo}/compare/{basehead}', {
-  owner: owner,
-  repo: repo,
-  basehead: 'develop...hmg'
-})
-
-const pull_request = await octokit.request('GET /repos/{owner}/{repo}/pulls', {
-  owner: 'OWNER',
-  repo: 'REPO'
-})
-
-console.log(commits)
+// const commits = await octokit.request('GET /repos/{owner}/{repo}/compare/{basehead}', {
+//   owner: owner,
+//   repo: repo,
+//   basehead: 'develop...hmg'
+// })
   
 const last_tag = await octokit.request('GET /repos/{owner}/{repo}/releases/latest', {
     owner: owner,
