@@ -34,6 +34,7 @@ await octokit.request('POST /repos/{owner}/{repo}/releases', {
 })
 }
 
+
 // Call the main function to run the action
 
 main();
