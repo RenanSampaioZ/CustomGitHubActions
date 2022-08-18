@@ -27,17 +27,19 @@ array_last_tag_name.shift()
 
 const last_tag_number = array_last_tag_name.join('')
 
-await octokit.request('POST /repos/{owner}/{repo}/releases', {
-  owner: owner,
-  repo: repo,
-  tag_name: 'v'+ String(parseFloat(last_tag_number) + parseFloat("0.1")),
-  target_commitish: 'hmg',
-  name: 'v'+ String(parseFloat(last_tag_number) + parseFloat("0.1")),
-  body: 'Description of the release',
-  draft: false,
-  prerelease: false,
-  generate_release_notes: false
-})
+console.log(last_tag_number)
+
+// await octokit.request('POST /repos/{owner}/{repo}/releases', {
+//   owner: owner,
+//   repo: repo,
+//   tag_name: 'v'+ String(parseFloat(last_tag_number) + parseFloat("0.1")),
+//   target_commitish: 'hmg',
+//   name: 'v'+ String(parseFloat(last_tag_number) + parseFloat("0.1")),
+//   body: 'Description of the release',
+//   draft: false,
+//   prerelease: false,
+//   generate_release_notes: false
+// })
 
 // await octokit.request('POST /repos/{owner}/{repo}/releases/generate-notes', {
 //   owner: owner,
