@@ -44,7 +44,7 @@ await octokit.request('POST /repos/{owner}/{repo}/releases/generate-notes', {
   repo: repo,
   tag_name: 'v'+ String(parseFloat(last_tag_number) + parseFloat("0.1")),
   target_commitish: 'hmg',
-  previous_tag_name: last_tag_number,
+  previous_tag_name: String(parseFloat(last_tag_number)),
 })
 }
 
