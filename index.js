@@ -7,11 +7,6 @@ const octokit = new github.getOctokit(token);
 
 const main = async () => {
 
-    // const commits = await octokit.request('GET /repos/{owner}/{repo}/compare/{basehead}', {
-    //   owner: owner,
-    //   repo: repo,
-    //   basehead: 'develop...hmg'
-    // })
   try {
     const last_tag = await octokit.request('GET /repos/{owner}/{repo}/releases/latest', {
       owner: owner,
@@ -32,10 +27,9 @@ const main = async () => {
       tag_name: 'v'+ (parseFloat(last_tag_number) + parseFloat("0.1")).toFixed(1),
       target_commitish: 'hmg',
       name: 'v'+ (parseFloat(last_tag_number) + parseFloat("0.1")).toFixed(1),
-      body: 'Description of the release',
       draft: false,
       prerelease: false,
-      generate_release_notes: false
+      generate_release_notes: true
 
     })       
   } catch (error) {
@@ -45,7 +39,6 @@ const main = async () => {
       tag_name: 'v1.0',
       target_commitish: 'hmg',
       name: 'v1.0',
-      body: 'Description of the release',
       draft: false,
       prerelease: false,
       generate_release_notes: false   
