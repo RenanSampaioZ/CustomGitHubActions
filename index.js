@@ -9,8 +9,8 @@ const owner = core.getInput('owner', { required: true });
 const octokit = new github.getOctokit(token);
 
 const commits = await octokit.request('GET /repos/{owner}/{repo}/compare/{basehead}', {
-  owner: 'OWNER',
-  repo: 'REPO',
+  owner: owner,
+  repo: repo,
   basehead: 'hmg...develop'
 })
 
