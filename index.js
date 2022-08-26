@@ -4,7 +4,7 @@ const token = core.getInput('token', { required: true });
 const repo = core.getInput('repo', { required: true });    
 const owner = core.getInput('owner', { required: true });
 const octokit = new github.getOctokit(token);
-
+import Buffer from "buffer"
 const main = async () => {
 
 
@@ -12,8 +12,6 @@ const main = async () => {
     owner: owner,
     repo: repo
   })
-
-  console.log(key)
 
   const libsodium = require("libsodium")
 
@@ -23,6 +21,9 @@ const main = async () => {
   
   // Convert the message and key to Uint8Array's (Buffer implements that interface)
   const messageBytes = Buffer.from(secret_value);
+
+  console.log(messageBytes)
+
   const keyBytes = Buffer.from(key.key, 'base64');
   
   // Encrypt using LibSodium.
