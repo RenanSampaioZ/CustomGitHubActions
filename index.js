@@ -15,11 +15,11 @@ const main = async () => {
   const sodium = require('tweetsodium');
 
   const secret_name = core.getInput('secret_name', { required: true });
-  const value = core.getInput('value', { required: true });
+  const secret_value = core.getInput('value', { required: true });
 
   
   // Convert the message and key to Uint8Array's (Buffer implements that interface)
-  const messageBytes = Buffer.from(value);
+  const messageBytes = Buffer.from(secret_value);
   const keyBytes = Buffer.from(key, 'base64');
   
   // Encrypt using LibSodium.
