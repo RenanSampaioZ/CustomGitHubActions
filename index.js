@@ -24,7 +24,9 @@ const main = async () => {
   const keyBytes = Buffer.from(key.data.key, 'base64');
 
   // Encrypt using LibSodium.
-  const encryptedBytes = sodium.seal(messageBytes, keyBytes);
+  const encryptedBytes = sodium.crypto_shorthash(messageBytes, keyBytes);
+
+ 
 
   // Base64 the encrypted secret
   const encrypted = Buffer.from(encryptedBytes).toString('base64');
