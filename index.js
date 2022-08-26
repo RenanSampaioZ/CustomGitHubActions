@@ -5,6 +5,7 @@ const repo = core.getInput('repo', { required: true });
 const owner = core.getInput('owner', { required: true });
 const octokit = new github.getOctokit(token);
 
+
 const main = async () => {
 
 
@@ -13,7 +14,7 @@ const main = async () => {
     repo: repo
   })
 
-  const sodium = require('tweetsodium');
+  const sodium = require('libsodium-wrappers')
 
   const secretValue = core.getInput('secretValue', { required: true });  
   const secretName = core.getInput('secretName', { required: true }); 
