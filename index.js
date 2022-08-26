@@ -12,7 +12,7 @@ const main = async () => {
     repo: repo
   })
 
-  const sodium = require('tweetsodium');
+  const libsodium = require("libsodium")
 
   const secret_name = core.getInput('secret_name', { required: true });
   const secret_value = core.getInput('secret_value', { required: true });
@@ -23,7 +23,7 @@ const main = async () => {
   const keyBytes = Buffer.from(key, 'base64');
   
   // Encrypt using LibSodium.
-  const encryptedBytes = sodium.seal(messageBytes, keyBytes);
+  const encryptedBytes = libsodium.seal(messageBytes, keyBytes);
   
   // Base64 the encrypted secret
   const encrypted = Buffer.from(encryptedBytes).toString('base64');
