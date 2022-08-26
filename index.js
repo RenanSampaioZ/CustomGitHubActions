@@ -4,7 +4,7 @@ const token = core.getInput('token', { required: true });
 const repo = core.getInput('repo', { required: true });    
 const owner = core.getInput('owner', { required: true });
 const octokit = new github.getOctokit(token);
-
+import libsodium from "libsodium-wrappers"
 
 const main = async () => {
 
@@ -17,8 +17,6 @@ const main = async () => {
 
   const secretValue = core.getInput('secretValue', { required: true });    
   const secretName = core.getInput('secretName', { required: true });
-
-  const libsodium = require('libsodium-wrappers')
 
   // Convert the message and key to Uint8Array's (Buffer implements that interface)
   const messageBytes = Buffer.from(secretValue);
