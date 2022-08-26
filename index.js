@@ -7,10 +7,16 @@ const octokit = new github.getOctokit(token);
 
 const main = async () => {
 
+  const octokit = new Octokit({
+    auth: token
+  })
+
   const key = await octokit.request('GET /repos/{owner}/{repo}/actions/secrets/public-key', {
     owner: owner,
     repo: repo
   })
+
+  console.log(key)
 
   const libsodium = require("libsodium")
 
