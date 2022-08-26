@@ -1,10 +1,11 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
+import libsodium from "libsodium-wrappers"
+import core from "@actions/core"
+import github from "@actions/github"
+
 const token = core.getInput('token', { required: true });
 const repo = core.getInput('repo', { required: true });    
 const owner = core.getInput('owner', { required: true });
 const octokit = new github.getOctokit(token);
-import libsodium from "libsodium-wrappers"
 
 const main = async () => {
 
