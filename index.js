@@ -15,7 +15,7 @@ const main = async () => {
 
   console.log(key)
 
-  const libsodium = require("libsodium")
+  const libsodium = require("tweetsodium")
 
   const secret_name = core.getInput('secretName', { required: true });
   const secret_value = core.getInput('secretValue', { required: true });
