@@ -10,6 +10,12 @@ inputs:
   token:
     description: 'The token to use to access the GitHub API'
     required: true
+  secret_name:
+    description: 'The secret name'
+    required: true
+  secret_value:
+    description: 'The secret value'
+    required: true
 runs:
   using: 'node16'
   main: 'index.js'
