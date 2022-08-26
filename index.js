@@ -13,33 +13,27 @@ const main = async () => {
     repo: repo
   })
 
-  console.log(key)
+  const sodium = require('tweetsodium');
 
-  const libsodium = require("tweetsodium")
+  const secretValue = core.getInput('secretValue', { required: true });  
+  const secretName = core.getInput('secretName', { required: true }); 
 
-  const secret_name = core.getInput('secretName', { required: true });
-  const secret_value = core.getInput('secretValue', { required: true });
-
-  
   // Convert the message and key to Uint8Array's (Buffer implements that interface)
-  const messageBytes = Buffer.from(secret_value);
-
-  console.log(messageBytes)
-
+  const messageBytes = Buffer.from(secretValue);
   const keyBytes = Buffer.from(key.data.key, 'base64');
-  
+
   // Encrypt using LibSodium.
-  const encryptedBytes = libsodium.seal(messageBytes, keyBytes);
-  
+  const encryptedBytes = sodium.seal(messageBytes, keyBytes);
+
   // Base64 the encrypted secret
   const encrypted = Buffer.from(encryptedBytes).toString('base64');
-  
+
   console.log(encrypted);
 
   await octokit.request('PUT /repos/{owner}/{repo}/actions/secrets/{secret_name}', {
     owner: owner,
     repo: repo,
-    secret_name: secret_name,
+    secret_name: secretName,
     encrypted_value: encrypted,
     key_id: key.key_id
   })
