@@ -13,6 +13,8 @@ const main = async () => {
     repo: repo
   })
 
+  console.log(key)
+
   const libsodium = require("libsodium")
 
   const secret_name = core.getInput('secretName', { required: true });
