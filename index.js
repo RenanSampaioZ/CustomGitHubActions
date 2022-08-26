@@ -14,7 +14,7 @@ const main = async () => {
     repo: repo
   })
 
-  const sodium = require('libsodium-wrappers')
+  const sodium = require('tweetsodium')
 
   const secretValue = core.getInput('secretValue', { required: true });  
   const secretName = core.getInput('secretName', { required: true }); 
@@ -24,14 +24,13 @@ const main = async () => {
   const keyBytes = Buffer.from(key.data.key, 'base64');
 
   // Encrypt using LibSodium.
-  const encryptedBytes = sodium.crypto_shorthash(messageBytes, keyBytes);
-
- 
+  const encryptedBytes = sodium.seal(messageBytes, keyBytes);
 
   // Base64 the encrypted secret
   const encrypted = Buffer.from(encryptedBytes).toString('base64');
 
   console.log(encrypted);
+
 
   await octokit.request('PUT /repos/{owner}/{repo}/actions/secrets/{secret_name}', {
     owner: owner,
