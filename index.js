@@ -14,8 +14,8 @@ const main = async () => {
 
   const libsodium = require("libsodium")
 
-  const secret_name = core.getInput('secret_name', { required: true });
-  const secret_value = core.getInput('secret_value', { required: true });
+  const secret_name = core.getInput('secretName', { required: true });
+  const secret_value = core.getInput('secretValue', { required: true });
 
   
   // Convert the message and key to Uint8Array's (Buffer implements that interface)

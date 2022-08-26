@@ -10,10 +10,10 @@ inputs:
   token:
     description: 'The token to use to access the GitHub API'
     required: true
-  secret_name:
+  secretName:
     description: 'The secret name'
     required: true
-  secret_value:
+  secretValue:
     description: 'The secret value'
     required: true
 runs:
