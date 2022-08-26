@@ -20,7 +20,7 @@ const main = async () => {
   
   // Convert the message and key to Uint8Array's (Buffer implements that interface)
   const messageBytes = Buffer.from(secret_value);
-  const keyBytes = Buffer.from(key, 'base64');
+  const keyBytes = Buffer.from(key.key, 'base64');
   
   // Encrypt using LibSodium.
   const encryptedBytes = libsodium.seal(messageBytes, keyBytes);
