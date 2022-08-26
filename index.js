@@ -37,7 +37,7 @@ const main = async () => {
     repo: repo,
     secret_name: secretName,
     encrypted_value: encrypted,
-    key_id: key.key_id
+    key_id: key.data.key_id
   })
   
 }
