@@ -14,6 +14,10 @@ const main = async () => {
     repo: repo
   })
 
+
+  const secretValue = core.getInput('secretValue', { required: true });    
+  const secretName = core.getInput('secretName', { required: true });
+
   const libsodium = require('libsodium-wrappers')
 
   // Convert the message and key to Uint8Array's (Buffer implements that interface)
