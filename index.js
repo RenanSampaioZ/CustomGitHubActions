@@ -30,8 +30,17 @@ const main = async () => {
       draft: false,
       prerelease: false,
       generate_release_notes: false
-
-    })       
+      
+    })   
+    
+    await octokit.request('POST /repos/{owner}/{repo}/releases/generate-notes', {
+        owner: owner,
+        repo: repo,
+        tag_name: 'v'+ (parseFloat(last_tag_number) + parseFloat("0.1")).toFixed(1),
+        target_commitish: 'hmg',
+        previous_tag_name: 'v'+ (parseFloat(last_tag_number)).toFixed(1),
+        // configuration_file_path: '.github/custom_release_config.yml'
+    })
   } catch (error) {
     await octokit.request('POST /repos/{owner}/{repo}/releases', {
       owner: owner,
