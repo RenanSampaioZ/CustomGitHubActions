@@ -29,7 +29,7 @@ const main = async () => {
       name: 'v'+ (parseFloat(last_tag_number) + parseFloat("0.1")).toFixed(1),
       draft: false,
       prerelease: false,
-      generate_release_notes: true
+      generate_release_notes: false
 
     })       
   } catch (error) {
