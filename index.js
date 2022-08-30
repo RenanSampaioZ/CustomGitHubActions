@@ -39,7 +39,7 @@ const main = async () => {
         tag_name: 'v'+ (parseFloat(last_tag_number) + parseFloat("0.1")).toFixed(1),
         target_commitish: 'hmg',
         previous_tag_name: 'v'+ (parseFloat(last_tag_number)).toFixed(1),
-        // configuration_file_path: '.github/custom_release_config.yml'
+        configuration_file_path: '.github/custom_release_config.yml'
     })
   } catch (error) {
     await octokit.request('POST /repos/{owner}/{repo}/releases', {
